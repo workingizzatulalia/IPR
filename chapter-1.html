@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 1: Licensing · Industry Performance Report 2025</title>
+  <meta name="description" content="Malaysia’s communications and multimedia licensing landscape in 2025.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    document.documentElement.classList.add('js');
+    // Viewport width without the scrollbar, so the bleed-right layout lines up with the container
+    (function () {
+      function setVw() { document.documentElement.style.setProperty('--vw', document.documentElement.clientWidth + 'px'); }
+      setVw();
+      window.addEventListener('resize', setVw);
+    })();
+  </script>
+  <style>
+    /* ---------- Tokens (same as index.html) ---------- */
+    :root {
+      --navy: #1d1f3f;
+      --indigo: #31346b;
+      --violet-bright: #5e4aa8;
+      --lavender: #e6e3fb;
+      --ink: #1e1745;
+      --ink-muted: #1e1745b8;
+      --accent: #f2b0cf;
+      --white: #fff;
+      --text-muted: #e6e3fbc2;
+      --line-light: #e6e3fb40;
+
+      --container: 75rem;
+      --pad: 5rem;
+      --indent: 5rem;
+      --gutter: max(var(--pad), (var(--vw, 100vw) - var(--container)) / 2);
+      --section-lg: 8rem;
+      --section-md: 5rem;
+      --space-lg: 3rem;
+      --cols: 14;
+
+      --h1: 4rem;
+      --text-regular: 1.125rem;
+      --text-small: .9375rem;
+      --text-eyebrow: .75rem;
+
+      --ease-out-2: cubic-bezier(.25, .46, .45, .94);
+      --ease-line: cubic-bezier(.625, .05, 0, 1);
+
+      color-scheme: dark;
+    }
+
+    @media (max-width: 991px) {
+      :root {
+        --pad: 2rem;
+        --indent: 2.5rem;
+        --section-lg: 6rem;
+        --section-md: 4rem;
+        --space-lg: 2.5rem;
+        --cols: 8;
+        --h1: 3.25rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      :root {
+        --pad: 1.25rem;
+        --indent: 1.25rem;
+        --section-lg: 4rem;
+        --section-md: 3rem;
+        --space-lg: 2rem;
+        --cols: 6;
+        --h1: 2.5rem;
+        --text-regular: 1rem;
+      }
+    }
+
+    /* ---------- Base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    /* Keep in-page jumps clear of the sticky nav */
+    [id] { scroll-margin-top: 5rem; }
+
+    body {
+      position: relative;
+      margin: 0;
+      background-color: var(--navy);
+      color: var(--white);
+      font-family: 'Figtree', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: var(--text-regular);
+      line-height: 1.5;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, p, ul { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+
+    ::selection { background-color: var(--violet-bright); color: var(--white); }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .chapter-detail__body :focus-visible { outline-color: var(--violet-bright); }
+
+    .sprite {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin-inline: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+      align-items: start;
+    }
+
+    /* Underline that wipes in from the left on hover, out to the right */
+    .u-link { position: relative; }
+    .u-link::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -.05em;
+      width: 100%;
+      height: .0625em;
+      background-color: currentColor;
+      transform-origin: right;
+      transform: scaleX(0) rotate(.001deg);
+      transition: transform .735s var(--ease-line);
+    }
+    a:hover .u-link::before,
+    .u-link:hover::before {
+      transform-origin: left;
+      transform: scaleX(1) rotate(.001deg);
+    }
+
+    /* ---------- Buttons with bracket corners ---------- */
+    .button {
+      --corner: var(--white);
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .75rem 1.125rem;
+      color: var(--white);
+      font-size: var(--text-eyebrow);
+      line-height: 1.4;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      transition: background-color .3s, color .3s;
+    }
+    .button:hover { background-color: var(--lavender); color: var(--ink); }
+
+    .button--dark { --corner: var(--ink); color: var(--ink); }
+    .button--dark:hover { background-color: var(--violet-bright); color: var(--white); }
+
+    .button__corner {
+      position: absolute;
+      width: .75rem;
+      height: .75rem;
+      border: 0 solid var(--corner);
+      pointer-events: none;
+      transition: transform .3s;
+    }
+    .button__corner.tl { top: 0; left: 0; border-top-width: 1px; border-left-width: 1px; }
+    .button__corner.tr { top: 0; right: 0; border-top-width: 1px; border-right-width: 1px; }
+    .button__corner.bl { bottom: 0; left: 0; border-bottom-width: 1px; border-left-width: 1px; }
+    .button__corner.br { bottom: 0; right: 0; border-bottom-width: 1px; border-right-width: 1px; }
+    .button:hover .button__corner.tl { transform: translate(-8px, -8px); }
+    .button:hover .button__corner.tr { transform: translate(8px, -8px); }
+    .button:hover .button__corner.bl { transform: translate(-8px, 8px); }
+    .button:hover .button__corner.br { transform: translate(8px, 8px); }
+
+    /* ---------- Page background ----------
+       Covers the whole page and scrolls with it; solid sections sit on top. */
+    .page-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .page-bg__media {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* Dim the photo to about half brightness, as in the Figma, so text over it stays readable */
+    .page-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: #00000080;
+    }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 1.5rem var(--pad);
+      transition: padding .3s, background-color .3s, backdrop-filter .3s, -webkit-backdrop-filter .3s, transform .4s var(--ease-out-2);
+    }
+
+    .nav.is-active {
+      padding-block: .875rem;
+      background-color: #1d1f3f99;
+      -webkit-backdrop-filter: blur(40px);
+      backdrop-filter: blur(40px);
+    }
+
+    /* Slid out of view while scrolling down */
+    .nav.is-hidden { transform: translateY(-100%); }
+
+    .nav__inner { align-items: center; }
+
+    .nav__brand {
+      grid-column: 1 / span 3;
+      justify-self: start;
+      display: inline-flex;
+    }
+    .nav__logo {
+      display: block;
+      width: 3.92rem;
+      height: 3.25rem;
+      transition: width .3s, height .3s;
+    }
+    .nav.is-active .nav__logo { width: 3.02rem; height: 2.5rem; }
+
+    .nav__link {
+      justify-self: start;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav__link:hover { color: var(--accent); }
+    /* This page sits inside the Chapters section */
+    .nav__link[aria-current] {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-underline-position: under;
+    }
+    .nav__link[aria-current]::before { content: none; }
+    .nav__link--1 { grid-column: 9 / 11; }
+    .nav__link--2 { grid-column: 11 / 13; }
+    .nav__link--3 { grid-column: 13 / 15; }
+
+    /* ---------- Chapter detail ----------
+       Runs from the content edge to the right edge of the screen, like the home page panels */
+    .chapter-detail { margin: 1.5rem 0 0 var(--gutter); }
+
+    .chapter-detail__bar {
+      display: flex;
+      align-items: center;
+      min-height: 3.875rem;
+      padding-inline: min(2.25rem, var(--indent));
+      background-color: var(--indigo);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: var(--text-eyebrow);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .back-link__icon {
+      font-size: 1.125rem;
+      line-height: 1;
+      transition: transform .3s var(--ease-out-2);
+    }
+    .back-link:hover .back-link__icon { transform: translateX(-4px); }
+
+    .chapter-detail__body {
+      display: grid;
+      grid-template-columns: minmax(0, 1.24fr) minmax(0, 1fr);
+      align-items: start;
+      padding-bottom: var(--space-lg);
+      background-color: var(--lavender);
+      color: var(--ink);
+    }
+
+    .chapter-detail__text {
+      padding: 4rem 3rem 0 var(--indent);
+      line-height: 1.35;
+    }
+    .chapter-detail__text > * + * { margin-top: 1.5rem; }
+    .chapter-detail__text p { max-width: 36rem; }
+
+    .chapter-detail__title {
+      font-size: var(--h1);
+      line-height: 1.05;
+      font-weight: 400;
+      letter-spacing: -.0625rem;
+    }
+
+    .chapter-detail__text > .chapter-detail__eyebrow {
+      margin-top: .5rem;
+      font-size: var(--text-eyebrow);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .chapter-detail__text > .chapter-detail__subhead {
+      margin-top: 1.25rem;
+      font-size: var(--text-regular);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .chapter-detail__text > .highlights { margin-top: 1rem; }
+    .highlights {
+      padding: 0;
+      list-style: none;
+    }
+    /* Bullet sits in its own column so wrapped lines hang clear of it */
+    .highlights li {
+      display: flex;
+      gap: .45em;
+    }
+    .highlights li::before { content: "•"; }
+
+    /* Button sits under the artwork, lined up with its left edge */
+    .chapter-detail__cta {
+      grid-column: 2;
+      justify-self: start;
+      margin-top: 1.5rem;
+    }
+
+    .chapter-detail__media {
+      overflow: hidden;
+      overflow: clip;
+    }
+    .chapter-detail__img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 18 / 25;
+      object-fit: cover;
+    }
+
+    /* ---------- Footer ----------
+       Contact details and copyright on the left, address on the right, bottoms aligned */
+    .footer {
+      background-color: var(--navy);
+      padding: 2.75rem var(--pad) 2.5rem;
+      font-size: var(--text-small);
+      line-height: 1.45;
+    }
+
+    .footer__inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .footer__contact {
+      display: grid;
+      gap: .75rem;
+    }
+    .footer__contact a { transition: color .2s; }
+    .footer__contact a:hover { color: var(--accent); }
+
+    .footer__legal,
+    .footer__address { font-size: var(--text-eyebrow); }
+    .footer__address {
+      font-style: normal;
+      line-height: 1.6;
+    }
+
+    /* ---------- Scroll reveal ---------- */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity .8s var(--ease-out-2) calc(var(--i, 0) * .08s),
+        transform .8s var(--ease-out-2) calc(var(--i, 0) * .08s);
+    }
+    .js .reveal.is-in { opacity: 1; transform: none; }
+
+    /* Artwork wipes down from the top as it appears */
+    .js .chapter-detail__media .chapter-detail__img {
+      clip-path: inset(0 0 100% 0);
+      transition: clip-path 1s var(--ease-out-2) .15s;
+    }
+    .js .chapter-detail__media.is-in .chapter-detail__img { clip-path: inset(0 0 0 0); }
+
+    /* ---------- Tablet ---------- */
+    @media (max-width: 991px) {
+      .nav__inner { display: flex; gap: 2rem; }
+      .nav__brand { margin-right: auto; }
+
+      .chapter-detail__body { grid-template-columns: minmax(0, 1fr); }
+      .chapter-detail__text { padding: var(--section-md) var(--gutter) var(--space-lg) var(--indent); }
+      .chapter-detail__img { aspect-ratio: 4 / 3; }
+      /* Stacked layout: under the artwork, lined up with the text */
+      .chapter-detail__cta { grid-column: auto; margin-left: var(--indent); }
+    }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 767px) {
+      .nav { padding-block: 1rem; }
+      .nav.is-active { padding-block: .75rem; }
+      .nav__inner { display: flex; gap: 1rem; }
+      .nav__brand { margin-right: auto; }
+      .nav__logo,
+      .nav.is-active .nav__logo { width: 2.72rem; height: 2.25rem; }
+      .nav__link { font-size: .8125rem; }
+
+      .footer__inner { flex-direction: column; align-items: start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .nav { transition: none; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+      .js .chapter-detail__media .chapter-detail__img { clip-path: none; transition: none; }
+      .back-link__icon,
+      .u-link::before { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MCMC logo, defined once and reused in the nav and footer.
+       The yellow and blue shapes run on under their neighbours so no background seam shows at the joins. -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="logo-mark" viewBox="39.25 27.5 116.5 96.5">
+      <path d="M97.5 27.5L99 78.5 97.5 81 45 102.5Z" fill="#f5a706"/>
+      <path d="M97.5 27.5L150 102.5 97.5 81Z" fill="#0074c8"/>
+      <path d="M45 102.5L97.5 78.9 150 102.5Z" fill="#e54179"/>
+      <circle cx="97.5" cy="77.7" r="16.6" fill="#fff" fill-opacity=".5"/>
+      <path d="M41 124V110.05L53.15 122.25 65.3 110.05V124M96.2 110.05H74.45A3.25 3.25 0 0 0 71.2 113.3V119A3.25 3.25 0 0 0 74.45 122.25H96.2M100.55 124V110.05L112.7 122.25 124.85 110.05V124M155.75 110.05H134A3.25 3.25 0 0 0 130.75 113.3V119A3.25 3.25 0 0 0 134 122.25H155.75" fill="none" stroke="#0074c8" stroke-width="3.5" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <!-- Background. The Figma uses a fibre-optic photo for this chapter;
+       swap the src for it (e.g. images/chapter-01-bg.jpg) once it's exported. -->
+  <div class="page-bg" aria-hidden="true">
+    <img class="page-bg__media" src="images/background.jpg" alt="" decoding="async">
+  </div>
+
+  <!-- Nav -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner grid">
+      <a href="index.html" class="nav__brand" aria-label="Industry Performance Report 2025, home">
+        <svg class="nav__logo" aria-hidden="true"><use href="#logo-mark"/></svg>
+      </a>
+      <a href="chapters.html" class="nav__link nav__link--1 u-link" aria-current="true">Chapters</a>
+      <!-- TODO: point at the statistics page once it exists -->
+      <a href="#" class="nav__link nav__link--2 u-link">Statistic</a>
+      <!-- TODO: point at the report PDF -->
+      <a href="#" class="nav__link nav__link--3 u-link">Download</a>
+    </div>
+  </header>
+
+  <main>
+    <article class="chapter-detail" aria-labelledby="chapter-title" data-nav-trigger>
+      <div class="chapter-detail__bar">
+        <a href="chapters.html" class="back-link">
+          <span class="back-link__icon" aria-hidden="true">←</span>
+          <span class="u-link">All chapters</span>
+        </a>
+      </div>
+
+      <div class="chapter-detail__body">
+        <div class="chapter-detail__text reveal">
+          <h1 class="chapter-detail__title" id="chapter-title">Chapter 1</h1>
+          <p class="chapter-detail__eyebrow">Licensing</p>
+          <p>This chapter presents Malaysia’s communications and multimedia licensing landscape in 2025. It covers the growth of Individual and Class Licences, licensing activity and renewals, compliance with licence conditions, cloud service provision and the ownership structure of Individual Licensees.</p>
+          <p>Malaysia’s technology-neutral licensing framework continues to support participation and investment across network infrastructure, services, applications and content as the industry evolves alongside 5G, cloud computing, artificial intelligence and the Internet of Things.</p>
+          <h2 class="chapter-detail__subhead">Key highlights 2025</h2>
+          <ul class="highlights" role="list">
+            <li>1,087 total licences</li>
+            <li>485 Individual Licences</li>
+            <li>593 Class Licences</li>
+            <li>269 Network Facilities Provider Individual Licences</li>
+            <li>181 Network Service Provider Individual Licences</li>
+            <li>539 Application Service Provider Class Licences</li>
+          </ul>
+        </div>
+
+        <div class="chapter-detail__media reveal">
+          <img class="chapter-detail__img" src="images/chapter-01.jpg" alt="">
+        </div>
+
+        <div class="chapter-detail__cta reveal">
+          <!-- TODO: point at the full Licensing chapter -->
+          <a href="#" class="button button--dark">
+            Explore licensing
+            <span class="button__corner tl"></span><span class="button__corner tr"></span><span class="button__corner bl"></span><span class="button__corner br"></span>
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Footer (same as index.html) -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__contact">
+        <p>
+          Contact us:<br>
+          T: <a href="tel:+60386888000">+603 8688 8000</a><br>
+          F: +603 8688 1000<br>
+          Email: <a href="https://www.mcmc.gov.my">www.mcmc.gov.my</a>
+        </p>
+        <p class="footer__legal">©2026 Malaysian Communications and Multimedia Commission. All rights reserved.</p>
+      </div>
+      <address class="footer__address">
+        MCMC HQ Tower 1<br>
+        Jalan Impact, Cyber 6 63000 Cyberjaya<br>
+        Selangor Darul Ehsan, Malaysia
+      </address>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Nav turns into a blurred glass bar once the chapter reaches it
+      var nav = document.getElementById('nav');
+      var trigger = document.querySelector('[data-nav-trigger]');
+      var ticking = false;
+
+      var lastY = window.scrollY;
+
+      function updateNav() {
+        ticking = false;
+        // offsetHeight rather than the bounding box, so the slide-away transform doesn't affect it
+        var active = nav.offsetHeight >= trigger.getBoundingClientRect().top;
+        nav.classList.toggle('is-active', active);
+
+        // Slide away while scrolling down, back on any scroll up; never hidden near the top
+        var y = window.scrollY;
+        if (Math.abs(y - lastY) > 4) {
+          nav.classList.toggle('is-hidden', y > lastY && y > nav.offsetHeight);
+          lastY = y;
+        }
+      }
+      function requestNavUpdate() {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updateNav);
+        }
+      }
+      window.addEventListener('scroll', requestNavUpdate, { passive: true });
+      window.addEventListener('resize', requestNavUpdate);
+      // Keyboard users tabbing into the nav always get it back
+      nav.addEventListener('focusin', function () { nav.classList.remove('is-hidden'); });
+      updateNav();
+
+      // Fade/rise blocks in as they scroll into view, staggered when they appear together
+      var items = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          var n = 0;
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.style.setProperty('--i', n++);
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          });
+        }, { rootMargin: '0px 0px -10% 0px' });
+        items.forEach(function (el) { io.observe(el); });
+      } else {
+        items.forEach(function (el) { el.classList.add('is-in'); });
+      }
+    })();
+  </script>
+</body>
+</html>
